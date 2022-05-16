@@ -1,19 +1,49 @@
 <html>
-<head>
-  <script src = "https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src = "ajax.js"></script>
-  <script src = "arrest.js"></script>
-  <link rel="stylesheet" href="styles.css">
-</head>
-    <body onload="getData();">
-        <h2>Track NYC Arrest Data</h2>
-        <div id= "lineChart"></div>
-      <div class="pieContainer">
-        <div id= "pieChart"></div>
-      </div>
-        <h4>Please select an NYC borough to plot. Use "B" for The Bronx, "K" for Brooklyn, "Q" for Queens, "M" for Manhattan, "S" for Staten Island. </h4>
+  <head>
+    <script src = "https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src = "ajax.js"></script>
+    <script src = "arrest.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script> <!-- Option Select Functionality -->
+      $(document).ready(function(){
+          $("select").change(function(){
+              $(this).find("option:selected").each(function(){
+                  var optionValue = $(this).attr("value");
+                  if(optionValue){
+                      $(".box").not("." + optionValue).hide();
+                      $("." + optionValue).show();
+                  } else{
+                      $(".box").hide();
+                  }
+              });
+          }).change();
+      });
+    </script>
+    <link rel = "stylesheet" href="styles.css">
+  </head>
+  <body onload = "getData();">
+    <div class = "header">
+      <h2>NYC Arrest Data Visualizer</h2>
+      <h5>by Pavel Khromchenko</h5>
+      <select class="div-toggle" data-target=".my-info-1">
+        <option>Please choose a graph to display</option>
+        <option value="line">Arrests Per Day</option>
+        <option value="pie">Arrests by Borough</option>
+        <option value="bar">Arrests per Age Group</option>
+      </select>
+    </div>
+    <div id = "lineChart" class = "line box"></div>
+    <div id = "pieChart" class = "pie box"></div>
+    <div class = "bar box">
+      <h4>Please select an NYC borough. Use "B" for The Bronx, "K" for Brooklyn, "Q" for Queens, "M" for Manhattan, "S" for Staten Island.</h4>
         <input type = "text" name = "boroText" id = "boroText"></input>
         <button onclick = "getBarGraph();">Plot It</button>
-        <div id= "barGraph"></div>
-    </body>
+      <div id= "barGraph"></div>
+    </div>
+    <div class = "footer">
+      <a href="https://github.com/pkhromchenko/NYC-Arrest-Data-Visualizer"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" class="icon-style" alt="Github icon"></a>
+      <a href="https://github.com/pkhromchenko/NYC-Arrest-Data-Visualizer"class = "icon-text">View on GitHub</a>
+    </div>
+    </div>
+  </body>
 </html>
