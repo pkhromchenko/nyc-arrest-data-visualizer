@@ -30,8 +30,7 @@ def ajax():
 
 @bottle.route('/styles.css')
 def styles():
-    return bottle.static_file("styles.css", root=".")
-  
+    return bottle.static_file("styles.css", root=".")  
 
 @bottle.get('/pieChart')
 def pieChart():
