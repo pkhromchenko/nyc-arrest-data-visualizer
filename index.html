@@ -1,0 +1,19 @@
+<html>
+<head>
+  <script src = "https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src = "ajax.js"></script>
+  <script src = "arrest.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+    <body onload="getData();">
+        <h2>Track NYC Arrest Data</h2>
+        <div id= "lineChart"></div>
+      <div class="pieContainer">
+        <div id= "pieChart"></div>
+      </div>
+        <h4>Please select an NYC borough to plot. Use "B" for The Bronx, "K" for Brooklyn, "Q" for Queens, "M" for Manhattan, "S" for Staten Island. </h4>
+        <input type = "text" name = "boroText" id = "boroText"></input>
+        <button onclick = "getBarGraph();">Plot It</button>
+        <div id= "barGraph"></div>
+    </body>
+</html>

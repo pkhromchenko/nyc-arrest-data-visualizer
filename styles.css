@@ -1,0 +1,14 @@
+  h2 {
+  text-align: center;
+}
+h3 {
+  text-align: center;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-contents: center;
+}
+  * {
+  font-family: "Roboto", Tahoma, Geneva, Verdana, sans-serif;
+  }
